@@ -20,5 +20,5 @@ func _on_lever_activated():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Button.connect("lever_activated", self, "_on_lever_activated")
+#	$Button.connect("lever_activated", self, "_on_lever_activated")
 	animation_player = $AnimationPlayer

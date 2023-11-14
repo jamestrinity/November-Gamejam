@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dbhmkdamu3iwf"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ft50o"]
-[ext_resource type="PackedScene" uid="uid://7xlgcn7g0d66" path="res://Scenes/player.tscn" id="1_wad82"]
-[ext_resource type="PackedScene" uid="uid://ojr353i4e2tj" path="res://Scenes/Player2.tscn" id="2_g2qo6"]
-[ext_resource type="PackedScene" uid="uid://xmecnud4iekv" path="res://Scenes/character_3.tscn" id="4_icxqm"]
+[ext_resource type="PackedScene" uid="uid://7xlgcn7g0d66" path="res://Scenes/chat1.tscn" id="1_wad82"]
+[ext_resource type="PackedScene" uid="uid://ojr353i4e2tj" path="res://Scenes/chat2.tscn" id="2_g2qo6"]
+[ext_resource type="PackedScene" uid="uid://xmecnud4iekv" path="res://Scenes/chat3.tscn" id="4_icxqm"]
 [ext_resource type="PackedScene" uid="uid://dw2cknbnu1j0x" path="res://Scenes/door.tscn" id="5_gj78c"]
 [ext_resource type="PackedScene" uid="uid://tpcbriqcvt54" path="res://Scenes/button.tscn" id="6_tv0yv"]
 

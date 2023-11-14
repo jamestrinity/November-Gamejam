@@ -1,2 +1,0 @@
-# November-Gamejam
-November Gamejam

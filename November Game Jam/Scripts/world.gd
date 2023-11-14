@@ -8,7 +8,9 @@ func _ready():
 	# Add each character to the characters array
 	for i in range(1, 4):
 		characters.append(get_node("Character" + str(i)))
+		characters[i - 1].active = false
 		print(characters)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

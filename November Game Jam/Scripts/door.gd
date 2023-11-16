@@ -10,11 +10,11 @@ func _ready():
 	# Store initial and open positions
 	door_position_initial = position
 	door_position_open = Vector2(door_position_initial.x, door_position_initial.y - 200)  # Adjust 100 to the distance the door should move
-
+	var mediator_ref = get_node("/root/DoorMediator") # Access the autoloaded mediator
+	mediator_ref.set_door_reference(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(is_door_open)
 	if is_door_open:
 		while position.y > door_position_open.y:
 			position.y -= door_speed * delta

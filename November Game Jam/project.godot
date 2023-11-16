@@ -18,7 +18,7 @@ config/icon="res://sprites/icon.svg"
 [autoload]
 
 InteractionManager="*res://Interactions/Interaction_Manager.tscn"
-Door="*res://Scripts/door.gd"
+DoorMediator="*res://Scripts/DoorMediator.gd"
 
 [input]
 

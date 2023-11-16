@@ -2,8 +2,11 @@ extends Node2D
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = $Label
+var current_checkpoint : Checkpoint 
+var player_active : Player
 
-const base_text = "[E] to "
+
+const base_text = " "
 
 var active_areas = []
 var can_interact = true
@@ -19,12 +22,12 @@ func unregister_area(area: InteractionArea):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if active_areas.size() > 0 && can_interact:
+	if active_areas.size() > 0 && can_interact && player_active.active:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = base_text + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position
@@ -40,7 +43,7 @@ func _sort_by_distance_to_player(area1, area2):
 	return area1_to_player < area2_to_player
 	
 func _input(event):
-	if event.is_action_pressed("interact") && can_interact:
+	if event.is_action_pressed("interact") && player_active.active:
 		if active_areas.size() > 0:
 			can_interact = false
 			label.hide()
@@ -48,3 +51,8 @@ func _input(event):
 			await active_areas[0].interact.call()
 			
 			can_interact = true
+			
+
+func respawn_player(playery):
+	if current_checkpoint != null:
+		playery.position = current_checkpoint.global_position

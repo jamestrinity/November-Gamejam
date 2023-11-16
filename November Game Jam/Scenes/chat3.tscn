@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://xmecnud4iekv"]
+[gd_scene load_steps=5 format=3 uid="uid://xmecnud4iekv"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_3wukq"]
 [ext_resource type="Texture2D" uid="uid://bfny0xbp03m4t" path="res://sprites/noarmal.png" id="2_ideeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efpgc"]
-size = Vector2(127, 127)
+size = Vector2(85, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avxpc"]
+size = Vector2(69, 85)
 
 [node name="Character3" type="CharacterBody2D"]
 collision_layer = 2
@@ -16,5 +19,18 @@ scale = Vector2(0.913333, 0.873333)
 texture = ExtResource("2_ideeu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
+position = Vector2(3.5, 16.5)
 shape = SubResource("RectangleShape2D_efpgc")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.5, 19.5)
+shape = SubResource("RectangleShape2D_avxpc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

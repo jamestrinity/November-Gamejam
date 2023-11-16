@@ -1,4 +1,5 @@
 extends Node2D
+class_name world
 
 var activeCharacter : int = 1
 var characters : Array = []
@@ -28,3 +29,6 @@ func switch_character():
 
 	# Activate the new character
 	characters[activeCharacter - 1].active = true
+	characters[activeCharacter - 1].set_active()
+	
+

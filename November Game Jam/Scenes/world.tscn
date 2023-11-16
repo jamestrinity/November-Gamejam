@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbhmkdamu3iwf"]
+[gd_scene load_steps=11 format=3 uid="uid://dbhmkdamu3iwf"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ft50o"]
 [ext_resource type="PackedScene" uid="uid://7xlgcn7g0d66" path="res://Scenes/chat1.tscn" id="1_wad82"]
@@ -6,18 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://xmecnud4iekv" path="res://Scenes/chat3.tscn" id="4_icxqm"]
 [ext_resource type="PackedScene" uid="uid://dw2cknbnu1j0x" path="res://Scenes/door.tscn" id="5_gj78c"]
 [ext_resource type="PackedScene" uid="uid://bx6ygap2ruoee" path="res://Scenes/button.tscn" id="6_qm0b1"]
+[ext_resource type="PackedScene" uid="uid://dqrlm0ee04qky" path="res://Scenes/checkpoint.tscn" id="7_yyhmg"]
+[ext_resource type="PackedScene" uid="uid://dsnuqmpegpenc" path="res://Scenes/spikes.tscn" id="8_6of8n"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_df5qv"]
 size = Vector2(1000, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpcs8"]
-size = Vector2(1003, 156)
+size = Vector2(1667, 151)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ft50o")
 
-[node name="Character1" parent="." instance=ExtResource("1_wad82")]
-position = Vector2(130, 300)
+[node name="Character1" parent="." groups=["player"] instance=ExtResource("1_wad82")]
+position = Vector2(29, 490)
 collision_mask = 3
 active = false
 player = 2
@@ -25,26 +27,33 @@ player = 2
 [node name="Platform" type="StaticBody2D" parent="."]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
-position = Vector2(559, 572)
+position = Vector2(596.5, 572)
+scale = Vector2(1.663, 1)
 mesh = SubResource("QuadMesh_df5qv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(559.5, 571)
+position = Vector2(596.5, 571)
 shape = SubResource("RectangleShape2D_lpcs8")
 
-[node name="Character2" parent="." instance=ExtResource("2_g2qo6")]
-position = Vector2(517, 242)
+[node name="Character2" parent="." groups=["player"] instance=ExtResource("2_g2qo6")]
+position = Vector2(-81, 436)
 collision_mask = 3
 player = 3
 
-[node name="Character3" parent="." instance=ExtResource("4_icxqm")]
-position = Vector2(277, 238)
+[node name="Character3" parent="." groups=["player"] instance=ExtResource("4_icxqm")]
+position = Vector2(2, 432)
 collision_mask = 3
 active = false
 player = 1
 
 [node name="Door" parent="." instance=ExtResource("5_gj78c")]
-position = Vector2(923, 235)
+position = Vector2(428, 235)
 
 [node name="Node2D" parent="." instance=ExtResource("6_qm0b1")]
-position = Vector2(692, 456)
+position = Vector2(357, 474)
+
+[node name="checkpoint" parent="." instance=ExtResource("7_yyhmg")]
+position = Vector2(-212, 379)
+
+[node name="spikes" parent="." instance=ExtResource("8_6of8n")]
+position = Vector2(172, 469)

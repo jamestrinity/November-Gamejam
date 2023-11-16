@@ -1,5 +1,8 @@
 extends CharacterBody2D
+class_name Player
 
+@onready var sprite = $Sprite2D
+@onready var camera = $Camera2D
 
 @export var active = true
 @export var player = 0
@@ -27,9 +30,17 @@ func _ready():
 		
 
 func _physics_process(delta):
+	if active:
+		camera.make_current()
+		
+	if Input.is_action_just_pressed("move_right") && active:
+		sprite.set_flip_h(true)
+	elif Input.is_action_just_pressed("move_left") && active:
+		sprite.set_flip_h(false)
+		
 	var input_dir: Vector2 = input()
 
-	if input_dir != Vector2.ZERO and active:
+	if input_dir != Vector2.ZERO && active:
 		acceleration(input_dir)
 		player_animation()
 	else:
@@ -39,7 +50,9 @@ func _physics_process(delta):
 	player_movement()
 	
 	jump()
-
+	
+	if position.y > 600 && active:
+		die()
 
 func input() -> Vector2:
 	var input_dir = Vector2.ZERO
@@ -75,3 +88,10 @@ func jump():
 
 func player_animation():
 	pass
+	
+func set_active():
+	InteractionManager.player_active = self
+	
+func die():
+	print("died")
+	InteractionManager.respawn_player(self)

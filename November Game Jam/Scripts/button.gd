@@ -4,7 +4,6 @@ extends StaticBody2D
 @onready var sprite = $Sprite2D
 @onready var door = get_node("door")
 var mediator_ref
-signal button_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

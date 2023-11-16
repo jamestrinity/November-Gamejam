@@ -1,16 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://xmecnud4iekv"]
 
-[ext_resource type="Script" path="res://Scenes/Player2.gd" id="1_mdbnf"]
-[ext_resource type="Texture2D" uid="uid://bfukv5baawr7y" path="res://icon.svg" id="2_1incj"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_3wukq"]
+[ext_resource type="Texture2D" uid="uid://bfny0xbp03m4t" path="res://sprites/noarmal.png" id="2_ideeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efpgc"]
 size = Vector2(127, 127)
 
 [node name="Character3" type="CharacterBody2D"]
-script = ExtResource("1_mdbnf")
+collision_layer = 2
+script = ExtResource("1_3wukq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_1incj")
+position = Vector2(-13, 4.99999)
+scale = Vector2(0.913333, 0.873333)
+texture = ExtResource("2_ideeu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)

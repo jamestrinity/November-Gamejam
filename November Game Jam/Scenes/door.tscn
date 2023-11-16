@@ -1,8 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dw2cknbnu1j0x"]
 
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_6na7n"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jf105"]
+[ext_resource type="Texture2D" uid="uid://cifiul0xv8k3x" path="res://sprites/door.png" id="2_iod8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdmsk"]
 size = Vector2(141, 260)
@@ -11,9 +10,9 @@ size = Vector2(141, 260)
 script = ExtResource("1_6na7n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(69.25, 128.75)
-scale = Vector2(139.5, 258.5)
-texture = SubResource("PlaceholderTexture2D_jf105")
+position = Vector2(69.5, 127.5)
+scale = Vector2(0.187222, 0.207222)
+texture = ExtResource("2_iod8f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(68.5, 129)

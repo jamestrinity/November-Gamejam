@@ -1,24 +1,32 @@
-extends StaticBody2D
+extends Node2D
 
-var is_open = false
-var animation_player : AnimationPlayer
+var is_door_open = null
+var door_position_initial : Vector2
+var door_position_open : Vector2
+var door_speed = 100  # Adjust the speed of the door movement here
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	# Store initial and open positions
+	door_position_initial = position
+	door_position_open = Vector2(door_position_initial.x, door_position_initial.y - 200)  # Adjust 100 to the distance the door should move
 
-func toggle_door():
-	if is_open:
-		is_open = false
-		animation_player.play("close_door_animation")  # Replace with your closing animation name
-	else:
-		is_open = true
-		animation_player.play("open_door_animation")  # Replace with your opening animation name
 
-func _on_lever_activated():
-	toggle_door()
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Button.connect("lever_activated", self, "_on_lever_activated")
-	animation_player = $AnimationPlayer
+	print(is_door_open)
+	if is_door_open:
+		while position.y > door_position_open.y:
+			position.y -= door_speed * delta
+	if !is_door_open:
+		while position.y < door_position_initial.y:
+			position.y += door_speed * delta
+
+# Function to open or close the door based on its current state
+func toggle_door():
+	if is_door_open == null:
+		is_door_open = true
+	else:
+		is_door_open = !is_door_open
+
+

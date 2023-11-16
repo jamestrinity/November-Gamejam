@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 @export var active = true
 @export var player = 0
 

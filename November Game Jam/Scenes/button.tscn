@@ -1,20 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://tpcbriqcvt54"]
+[gd_scene load_steps=6 format=3 uid="uid://bx6ygap2ruoee"]
 
-[ext_resource type="Script" path="res://Scripts/button.gd" id="1_ldjou"]
+[ext_resource type="PackedScene" uid="uid://c14voogrk423i" path="res://Interactions/Interaction_Area/Interaction_Area.tscn" id="1_fm1mb"]
+[ext_resource type="Script" path="res://Scripts/button.gd" id="1_rqqmy"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y5wvq"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_clf3m"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7032"]
-size = Vector2(34, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky2j3"]
+size = Vector2(50, 45)
 
-[node name="Button" type="Area2D"]
-script = ExtResource("1_ldjou")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyia0"]
+size = Vector2(85, 69)
+
+[node name="button" type="StaticBody2D"]
+script = ExtResource("1_rqqmy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16.25, 14.25)
-scale = Vector2(33.5, 29.5)
-texture = SubResource("PlaceholderTexture2D_y5wvq")
+scale = Vector2(-48.8154, -43.8655)
+texture = SubResource("PlaceholderTexture2D_clf3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(17, 15)
-shape = SubResource("RectangleShape2D_c7032")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ky2j3")
+
+[node name="Interaction_Area" parent="." instance=ExtResource("1_fm1mb")]
+action_name = "press"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction_Area"]
+position = Vector2(-0.5, -12.5)
+shape = SubResource("RectangleShape2D_qyia0")

@@ -1,15 +1,17 @@
-extends Area2D
+extends StaticBody2D 
 
+@onready var interaction_area = $Interaction_Area
+@onready var sprite = $Sprite2D
+@onready var door = get_node("door")
+signal button_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print("loaded")
+	interaction_area.interact = Callable(self, "_on_interact")
 
+func _on_interact():
+	print("pressed")
+	Door.toggle_door();
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func _on_Button_body_entered(body):
-	if body.name == "Player":  # Replace "Player" with the name of the object that triggers the interaction
-		emit_signal("lever_activated")  # Signal to inform the door that the lever/button is activated# Signal to inform the door that the lever/button is activated

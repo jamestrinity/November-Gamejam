@@ -56,3 +56,5 @@ func _input(event):
 func respawn_player(playery):
 	if current_checkpoint != null:
 		playery.position = current_checkpoint.global_position
+
+

@@ -51,7 +51,7 @@ func _physics_process(delta):
 	
 	jump()
 	
-	if position.y > 600 && active:
+	if position.y > 1200 && active:
 		die()
 
 func input() -> Vector2:
@@ -93,5 +93,4 @@ func set_active():
 	InteractionManager.player_active = self
 	
 func die():
-	print("died")
 	InteractionManager.respawn_player(self)

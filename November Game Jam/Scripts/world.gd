@@ -11,6 +11,8 @@ func _ready():
 		characters.append(get_node("Character" + str(i)))
 		characters[i - 1].active = false
 		print(characters)
+		characters[activeCharacter - 1].active = true
+		characters[activeCharacter - 1].set_active()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

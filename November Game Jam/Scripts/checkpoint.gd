@@ -17,7 +17,7 @@ func _process(delta):
 
 func activate():
 	InteractionManager.current_checkpoint = self
-	#activated = true
+	activated = true
 	#$AnimationPlayer.play("name_of_animation")
 
 

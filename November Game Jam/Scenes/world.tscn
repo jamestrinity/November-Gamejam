@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbhmkdamu3iwf"]
+[gd_scene load_steps=13 format=3 uid="uid://dbhmkdamu3iwf"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ft50o"]
 [ext_resource type="PackedScene" uid="uid://7xlgcn7g0d66" path="res://Scenes/chat1.tscn" id="1_wad82"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bx6ygap2ruoee" path="res://Scenes/button.tscn" id="6_qm0b1"]
 [ext_resource type="PackedScene" uid="uid://dqrlm0ee04qky" path="res://Scenes/checkpoint.tscn" id="7_yyhmg"]
 [ext_resource type="PackedScene" uid="uid://dsnuqmpegpenc" path="res://Scenes/spikes.tscn" id="8_6of8n"]
+[ext_resource type="PackedScene" uid="uid://quu0al28gxsr" path="res://Scenes/drop_platform.tscn" id="9_e5ons"]
+[ext_resource type="PackedScene" uid="uid://c7i1rbuec0ekc" path="res://Scenes/falling_spikes.tscn" id="10_6bggi"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_df5qv"]
 size = Vector2(1000, 150)
@@ -19,7 +21,7 @@ size = Vector2(1669, 73.5)
 script = ExtResource("1_ft50o")
 
 [node name="Character1" parent="." groups=["player"] instance=ExtResource("1_wad82")]
-position = Vector2(29, 490)
+position = Vector2(-161, 383)
 collision_mask = 3
 active = false
 player = 2
@@ -38,12 +40,12 @@ position = Vector2(597.5, 609.75)
 shape = SubResource("RectangleShape2D_lpcs8")
 
 [node name="Character2" parent="." groups=["player"] instance=ExtResource("2_g2qo6")]
-position = Vector2(-81, 436)
+position = Vector2(-189, 437)
 collision_mask = 3
 player = 3
 
 [node name="Character3" parent="." groups=["player"] instance=ExtResource("4_icxqm")]
-position = Vector2(2, 432)
+position = Vector2(-106, 436)
 collision_mask = 3
 active = false
 player = 1
@@ -55,7 +57,13 @@ position = Vector2(457, 240)
 position = Vector2(357, 478)
 
 [node name="checkpoint" parent="." instance=ExtResource("7_yyhmg")]
-position = Vector2(-237, 386)
+position = Vector2(-155, 385)
 
 [node name="spikes" parent="." instance=ExtResource("8_6of8n")]
 position = Vector2(173, 475)
+
+[node name="drop_platform" parent="." instance=ExtResource("9_e5ons")]
+position = Vector2(735, 200)
+
+[node name="falling_spikes" parent="." instance=ExtResource("10_6bggi")]
+position = Vector2(599, 93)

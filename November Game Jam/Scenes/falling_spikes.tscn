@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7i1rbuec0ekc"]
+
+[ext_resource type="Script" path="res://falling_spikes.gd" id="1_w8kg0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vg3f7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hba55"]
+size = Vector2(117, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8mte"]
+size = Vector2(118, 437.5)
+
+[node name="falling_spikes" type="Node2D"]
+script = ExtResource("1_w8kg0")
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(57.75, 17.75)
+scale = Vector2(116.5, 36.5)
+texture = SubResource("PlaceholderTexture2D_vg3f7")
+
+[node name="hitbox" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(57.5, 18)
+shape = SubResource("RectangleShape2D_hba55")
+
+[node name="player_detector" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detector"]
+position = Vector2(58, 217.25)
+shape = SubResource("RectangleShape2D_w8mte")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="player_detector" to="." method="_on_player_detector_area_entered"]
